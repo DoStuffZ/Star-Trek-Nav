@@ -8,7 +8,7 @@
 # 1 - being a 10 degree wedge out of the 360 degree circle with centre in galaxy centre. Noted as 0-9 and a-z (10 + 26 = 36)
 # 5 - being the 5th band, out of 10.
 # 
-# Quad 02 - being a 3D reference of 100 Quads in a 5000 x 3600 x 10 degree (~4500) LY sector
+# Quad 02 - being a 3D reference of 100 Quads in a 5000 x 3600 x 10 degree (~4500) LY.
 # 
 # Block 076 - Dividing that block again, results in a 1000 Blocks, out of a 1000 x 800 x 2 degree (~ 900) LY
 # 
