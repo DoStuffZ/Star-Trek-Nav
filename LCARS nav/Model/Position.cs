@@ -1,13 +1,17 @@
 ﻿using System;
 
+namespace Model;
+/// <summary>
+/// Create a Galactic position.
+/// </summary>
 public class Position
 {
     #region Attritubes and Fields   
-    public char[2] Grid { get; set; } // Wedge [0-9, a-z] (10 degree) and band (0-9) (Band being 5000 x 3600)
+    public char[] Grid { get; set; } // Wedge [0-9, a-z] (10 degree) and band (0-9) (Band being 5000 x 3600)
     public int Quad { get; set; } // 100 Quads in 5000 x 3600 x 10 degree (~4500) LY
     public int Block { get; set; } // 1000 Blocks in 1000 x 800 x 2 degree (~900) LY
     public int Sector { get; set; } // 100 Sectors in a 100 x 80 x ~100 (0 deg 13' 20")
-    public string System { get; set; } = null; // S02-ABC
+    public string? System { get; set; } = null; // S02-ABC, Sol
     #endregion
 
     #region Constructors
@@ -16,7 +20,7 @@ public class Position
     /// </summary>
     public Position()
     {
-        Grid = new char[2] { 0, 0 };
+        Grid = new char[2] { '0', '0' };
         Quad = 0;
         Block = 0;
         Sector = 0;
@@ -48,7 +52,7 @@ public class Position
     /// <param name="block">Block</param>
     /// <param name="sector">Sector</param>
     /// <param name="system">System, solar system</param>
-    public Position(char[] grid, int quad, int block, int sector, string system) : (grid, quad, block, sector)
+    public Position(char[] grid, int quad, int block, int sector, string system) : this(grid, quad, block, sector)
     {
         System = system;
     }
@@ -62,7 +66,7 @@ public class Position
     /// <param name="quad">Quad (072)</param>
     /// <param name="block">Block (76)</param>
     /// <param name="sector">Sector (02)</param>
-    /// <returns></returns>
+    /// <returns>Radial Distance</returns>
     public int Radial(char[] grid, int quad, int block, int sector)
     {
         return Band(grid) * 5000 + quad * 900 + block * 500 + sector * 100;
@@ -94,9 +98,9 @@ public class Position
     /// <param name="band">Band (of Grid)</param>
     /// <param name="block">Block number</param>
     /// <returns>Z Height (LY)</returns>
-    public int ZHeight(int band, int block)
+    public double ZHeight(int band, int block)
     {
-        return (band * 3600) + (block / 100) * 800);
+        return (band * 3600) + ((block / 100) * 800);
     }
     #endregion
 
@@ -114,9 +118,24 @@ public class Position
     /// Returning string format of Position "15 02 076 12"
     /// </summary>
     /// <returns>String</returns>
-    public string ToString()
+    public override string ToString()
     {
         return $"{Grid} {Quad:D2} {Block:D3} {Sector:D2}";
+    }
+
+    internal int X()
+    {
+        throw new NotImplementedException();
+    }
+
+    internal int Y()
+    {
+        throw new NotImplementedException();
+    }
+
+    internal int Z()
+    {
+        throw new NotImplementedException();
     }
     #endregion
 }
