@@ -1,18 +1,19 @@
 ﻿# Star-Trek-Nav
 # Calculating Star Trek distances, and add a warp factor giving a time
 # 
-# Book reference: 15 02 076 12
+# Book reference: 15 02 076 12 (Galactic Coordination, 2008)
+# 2012 came a 2nd coordination system based around UFP, marking the 0,0,0 just outside the Sol System.
 # 
 ### Explanation
-# Grid 15
+# Grid (15)
 # 1 - being a 10 degree wedge out of the 360 degree circle with centre in galaxy centre. Noted as 0-9 and a-z (10 + 26 = 36)
 # 5 - being the 5th band, out of 10. A band being 5000 LY wide, 3600 LY thickness.
 # 
-# Quad 02 - being a 3D reference of 100 Quads in a 5000 x 3600 x 10 degree (~4500) LY.
+# Quad (02) - being a 3D reference of 100 Quads in a 5000 x 3600 x 10 degree (~4500) LY.
 # 
-# Block 076 - Dividing that Quad again, results in a 1000 Blocks, out of a 1000 x 800 x 2 degree (~ 900) LY
+# Block (076) - Dividing that Quad again, results in a 1000 Blocks, out of a 1000 x 800 x 2 degree (~ 900) LY
 # 
-# Sector 12 - This Block is again divided up into a 100 Sectors. 100 x 80 x ~100 LY (0 deg 13' 20"). 
+# Sector (12) - This Block is again divided up into a 100 Sectors. 100 x 80 x ~100 LY (0 deg 13' 20"). 
 # 
 # Putting you within an average of ~40-50 LY distance of your target. A sector could potentially contain several systems. Example both sol system and Alpha Centauri system within the same sector.
 # 
@@ -25,7 +26,9 @@
 # 
 # distance = sqr ([Δx]^2 + [Δy]^2 + [Δz]^2) 
 # 
-# Adding Warp factor calculations after we know the distance.
+# Adding Warp factor calculations after we know the distance. While I did find a formula for calculating the c value of a Warp Factor, that only goes up to Warp 9. After that things starts to become wonky.
+# 1-<9 : Math.Pow(warp, 10 / 3) + Math.Pow(10 - warp, -11 / 3);
+# 9+ : The best solution is a predefined table. Formulas tried: =1516 * POWER(10; (W-9)*0,677 ) / = 1516 * POWER( 10;(W - 9) * 1,2) / =1516 / POWER( 10-W; 10/3 )
 # --
 # Custom factor
 # --
