@@ -6,6 +6,9 @@ namespace LCARS_nav.Model;
 public class WarpFactor
 {
     #region Fields
+    /// <summary>
+    /// Warp factor luminal velocities above 9.
+    /// </summary>
     private IDictionary AboveWarp9 = new Dictionary<string, double>
     {
         {"9", 1516},
@@ -20,9 +23,18 @@ public class WarpFactor
         {"9.9",21473},
         {"9.99",114770}
     };
+    /// <summary>
+    /// Would be looking for the relative transport velocities
+    /// </summary>
+    private IDictionary Transwarp = new Dictionary<string, double> { };
+    private IDictionary QuantumSlipstream = new Dictionary<string, double> { };
+    private IDictionary CoaxialWarp = new Dictionary<string, double> { };
     #endregion
 
     #region Constructor
+   /// <summary>
+   /// Default constructor
+   /// </summary>
     public WarpFactor()
     {
     }
@@ -55,6 +67,8 @@ public class WarpFactor
                 return 0;
             }
         }
+
+        // 21,473×10(W−10)×0.5
     }
     #endregion
 }
