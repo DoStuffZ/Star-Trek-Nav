@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Model;
+namespace LCARS_nav.Model;
 /// <summary>
 /// Create a Galactic position.
 /// </summary>
@@ -100,7 +100,7 @@ public class Position
     /// <returns>Z Height (LY)</returns>
     public double ZHeight(int band, int block)
     {
-        return (band * 3600) + ((block / 100) * 800);
+        return band * 3600 + block / 100 * 800;
     }
     #endregion
 

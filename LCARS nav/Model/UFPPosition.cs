@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Model;
+namespace LCARS_nav.Model;
 /// <summary>
 /// Create an UFP (United Federation Planets) position.
 /// </summary>

@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections;
 
-namespace Model;
+namespace LCARS_nav.Model;
 
 public class WarpFactor
 {
     #region Fields
-    private IDictionary Above9Warp = new Dictionary<string, double>
+    private IDictionary AboveWarp9 = new Dictionary<string, double>
     {
         {"9", 1516},
         {"9.1",1649},
@@ -26,11 +26,6 @@ public class WarpFactor
     public WarpFactor()
     {
     }
-
-    public IDictionary GetAbove9Warp()
-    {
-        return Above9Warp;
-    }
     #endregion
 
     #region Methods
@@ -38,7 +33,7 @@ public class WarpFactor
     /// Translate Warp Factor to c (speed of light).
     /// </summary>
     /// <param name="warp">Warp Factor</param>
-    /// <returns>c velocity (Speed of Light)</returns>
+    /// <returns>Luminal velocity (c) (Speed of Light)</returns>
     public static double WarpToC(double warp, IDictionary above9Warp)
     {
         if (warp < 9)

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Model;
+namespace LCARS_nav.Model;
 /// <summary>
 /// Calculation a Euclidean distance between 2 points of a point in a 3D space.
 /// </summary>
